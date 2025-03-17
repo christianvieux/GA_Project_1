@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies & Anime Binge - Trending Movies, Shows & Anime</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Js Scripts -->
+    <script src="js/movieData.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/themeToggle.js" defer></script>
+
+    <!-- Pages -->
+    <!-- <script src="js/home.js" defer></script> -->
+    <script src="js/movies.js" defer></script>
+    <!-- <script src="js/tvshows.js" defer></script> -->
+    <!-- <script src="js/anime.js" defer></script> -->
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="">
+            <!-- Logo/Site -->
+            <div>
+                <h1>Movies & Anime Binge</h1>
+            </div>
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+
+                <a href="#home" class="active">Home</a>
+                <a href="#movies">Movies</a>
+                <a href="#shows">TV Shows</a>
+                <a href="#anime">Anime</a>
+                <a href="#about">About</a>
+
+            </nav>
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search titles...">
+                <button class="search-button">Search</button>
+            </div>
+            <!-- Theme Toggle -->
+            <div class="theme-toggle">
+                <button class="theme-toggle-button">☀️ Light Theme</button>
+            </div>
+            <!-- Hamburger -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="hamburger">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </header>
+        <!-- Main Content -->
+        <main>
+            <!-- Search Result -->
+            <div id="search_results_page" class="page">
+                <div class="page_header">
+                    <h1 class="page_title">Search Results for: <span id="search_query_display"></span></h1>
+                </div>
+                
+                <div id="search_results_container">
+                    <!-- Results will be inserted here -->
+                </div>
+                
+                <div id="no_results_message" class="hidden">
+                    <h3>No results found. Try a different search term.</h3>
+                </div>
+            </div>
+            <!-- Home Page -->
+            <div id="home_page" class="page">
+                <!-- <h3 class="home_page_title">Home</h3> -->
+                
+                <div id="trending" class="home_page_section">
+                    <h1 id="trending" class="home_page_section_title">Trending Movies:</h1>
+                    <div id="trending" class="home_page_section_list">
+                        <!-- Items go here -->
+                    </div>
+                </div>
+                <div id="new-releases" class="home_page_section">
+                    <h1  id="new-releases" class="home_page_section_title">New Releases:</h1>
+                    <div id="new-releases" class="home_page_section_list">
+                        <!-- Items go here -->
+                    </div>
+                </div>
+                <div id="popular" class="home_page_section">
+                    <h1 id="popular" class="home_page_section_title">Popular Movies:</h1>
+                    <div id="popular" class="home_page_section_list">
+                        <!-- Items go here -->
+                    </div>
+                </div>
+    
+            </div>
+            <!-- Movies Page-->
+            <div id="movies_page" class="page">
+                <div class="page_header">
+                    <h1 class="page_title">Movies</h1>
+                    <div class="filter_container">
+                        <select id="movie_genre_filter" class="genre_filter">
+                            <option value="all">All Genres</option>
+                            <option value="28">Action</option>
+                            <option value="12">Adventure</option>
+                            <option value="16">Animation</option>
+                            <!-- Add more genre options -->
+                        </select>
+                        <select id="movie_sort_filter" class="sort_filter">
+                            <option value="popularity">Sort by Popularity</option>
+                            <option value="rating">Sort by Rating</option>
+                            <option value="release">Sort by Release Date</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="content_grid">
+                    <!-- Movie cards will be dynamically inserted here -->
+                    <!-- Template is already defined in your home page -->
+                </div>
+                
+                <button id="load_more_movies" class="load_more_btn">Load More</button>
+            </div>
+            <!--  -->
+        </main>
+        <!-- Mobile Sidebar Navigation -->
+        <aside class="sidebar hide-sidebar">
+            <div class="sidebar-header">
+                <h2>MENU</h2>
+                <button class="close-sidebar-button">Close</button>
+            </div>
+            <nav class="sidebar-nav">
+                <!-- Search -->
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search titles...">
+                    <button class="search-button">Search</button>
+                </div>
+                <!-- Basic Buttons -->
+                <a href="#home">Home</a>
+                <a href="#movies">Movies</a>
+                <a href="#shows">TV Shows</a>
+                <a href="#anime">Anime</a>
+                <a href="#about">About</a>
+                <!-- Theme Toggle -->
+                <button class="theme-toggle-button">☀️ Light Theme</button>
+            </nav>
+        </aside>
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>Developed by Christian Vieux | Bootcamp Project 2025</p>
+            <p>&copy; 2025 Movies & Anime Binge</p>
+        </footer>
+    </div>
+
+    <!-- -------------------------------------[[ TEMPLATES ]]------------------------------------------ -->
+    <template id="movie-card-template">
+        <div class="movie_card">
+            <img class="movie_card_poster" src="" alt="">
+            <div class="movie_card_info">
+                <h3 class="movie_card_title"></h3>
+                <p class="movie_card_date"></p>
+                <div class="movie_card_genres">
+                    <span class="movie_card_genre template"></span>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Modal -->
+    <div id="details_modal" class="modal">
+        <div class="modal_content">
+            <span class="close_modal">close</span>
+            <div class="modal_header">
+                <h2 id="modal_title"></h2>
+                <p id="modal_meta"></p>
+            </div>
+            <div class="modal_body">
+                <img id="modal_poster" src="https://placehold.co/300x450" alt="Movie Poster">
+                <div class="modal_details">
+                    <h3>Overview</h3>
+                    <p id="modal_overview"></p>
+                    <h3>Genres</h3>
+                    <div id="modal_genres" class="modal_genres">
+                        <!-- Genres will be here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

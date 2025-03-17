@@ -1,0 +1,44 @@
+/* === Theme Variables === */
+:root {
+    /* Base colors - Dark theme (default) */
+    --primary: #3b6061;
+    --primary-dark: #2c4b4c;
+    --secondary: #161616;
+    --accent: #bebebe;
+    
+    --background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    --surface: #ffffff;
+    --surface-dark: #f0f0f0;
+    
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --text-muted: #9b9b9b;
+    
+    --header-bg: #000000a4;
+    --sidebar-bg: linear-gradient(to right, #505050, #727171);
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --modal-overlay: rgba(0, 0, 0, 0.8);
+    --modal-bg: #141414;
+  }
+  
+  /* Dark theme colors - already your default */
+  .light-theme {
+    --primary: #5c8a8c;
+    --primary-dark: #3b6061;
+    --secondary: #f5f5f5;
+    --accent: #505050;
+    
+    --background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    --surface: #363636;
+    --surface-dark: #222222;
+    
+    --text-light: #333333;
+    --text-dark: #ffffff;
+    --text-muted: #707070;
+    
+    --header-bg: #ffffffdd;
+    --sidebar-bg: linear-gradient(to right, #e0e0e0, #f0f0f0);
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --modal-overlay: rgba(0, 0, 0, 0.5);
+    --modal-bg: #f0f0f0;
+  }

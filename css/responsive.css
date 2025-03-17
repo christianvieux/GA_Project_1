@@ -1,0 +1,78 @@
+.hidden {
+    display: none !important;
+}
+.show, .active {
+    display: block !important;
+}
+
+.hide-sidebar {
+    transform: translateX(100%);
+}
+
+
+/* Hide certain things by default */
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 810px) {
+    .sidebar {
+      display: block !important; /* Makes the sidebar visible on small screens */
+    }
+  }
+.sidebar {
+    display: none;
+}
+
+.sidebar .theme-toggle-button {
+    display: none;
+}
+.sidebar .search-container {
+    display: none;
+}
+
+
+
+
+/* Hide desktop-nav at 810px width */
+@media (max-width: 810px) {
+    .desktop-nav {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Hide the desktop-nav and show the hamburger */
+@media (max-width: 670px) {
+    .desktop-nav {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Hide theme */
+@media (max-width: 640px) {
+    .theme-toggle-button {
+        display: none;
+    }
+    .sidebar .theme-toggle-button {
+        display: block;
+    }
+}
+
+/* Hide search bar */
+@media (max-width: 530px) {
+    .search-container {
+        display: none;
+    }
+    .sidebar .search-container {
+        display: flex;
+    }
+}
+
+
+/* --------- [[ movies/animes/shows pages ]] ------------- */
